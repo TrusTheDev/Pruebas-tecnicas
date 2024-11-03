@@ -14,15 +14,17 @@ public class generarContraseña {
     public static void main(String[] args) {
         int caracterMaximo = 16;
         String contraseña = "";
-        Random random = new Random();
+        Random rand = new Random();
+
         for(int i=0; i<16; i++){
-            if(random.nextInt(3) == 1){
+            int random = rand.nextInt(3);
+            if(random == 0){
                 contraseña += retornaLetraMayus();
             }
-            else if (random.nextInt() == 2){
+            else if (random == 1){
                 contraseña += retornaLetraMinus();
             }
-            else if (random.nextInt() == 3){
+            else if (random == 2){
                 contraseña += retornaNumero();
             }
         }
@@ -36,10 +38,10 @@ public class generarContraseña {
         return letras[rand.nextInt(16)];
     }
 
-    public static char retornaLetraMinus(){
+    public static String retornaLetraMinus(){
         char[] letras = "ABCDEFGHIJKLMNOPQRSTUVXYZ".toLowerCase().toCharArray();
         Random rand = new Random();
-        return letras[rand.nextInt(16)];
+        return String.valueOf(letras[rand.nextInt(16)]);
     }
 
     public static String retornaNumero(){
