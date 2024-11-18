@@ -13,7 +13,13 @@
 
 public class tresEnRaya {
     public static void main(String[] args) {
-        String[][] matriz = new String[3][3];
+        String[][] tableroEmpate = {
+                {"x", "o", "o"},
+                {"x", "x", "o"},
+                {"x", " ", "o"}
+        };
+
+        System.out.println(ganador(tableroEmpate));
         }
 
 
@@ -33,15 +39,18 @@ public class tresEnRaya {
         //Primera fila horizontal
         if (matriz[0][0] == "x" && matriz[0][1] == "x" && matriz[0][2] == "x"){
             bandera1fh ++;
+            System.out.println("Primer fila horizontal");
             banderaX += 1;
         }
         else if(matriz[0][0] == "o" && matriz[0][1] == "o" && matriz[0][2] == "o"){
             bandera1fh ++;
+            System.out.println("Primer fila horizontal");
             banderaO += 1;
         }
         //segunda fila horizontal
         else if(matriz[1][0] == "x" && matriz[1][1] == "x" && matriz[1][2] == "x"){
             bandera2fh ++;
+            System.out.println("segunda fila horizontal");
             banderaX = 1;
         }
         else if(matriz[1][0] == "o" && matriz[1][1] == "o" && matriz[1][2] == "o"){
@@ -51,6 +60,7 @@ public class tresEnRaya {
         //tercera fila horizontal
         else if(matriz[2][0] == "x" && matriz[2][1] == "x" && matriz[2][2] == "x"){
             bandera3fh ++;
+            System.out.println("tercera fila horizontal");
             banderaX += 1;
         }
         else if(matriz[2][0] == "o" && matriz[2][1] == "o" && matriz[2][2] == "o"){
@@ -60,6 +70,7 @@ public class tresEnRaya {
         //primera fila vertical
         else if(matriz[0][0] == "x" && matriz[1][0] == "x" && matriz[2][0] == "x"){
             bandera1fv ++;
+            System.out.println("Primer fila vertical");
             banderaX += 1;
 
         }
@@ -71,6 +82,7 @@ public class tresEnRaya {
         //segunda fila vertical
         else if(matriz[0][1] == "x" && matriz[1][1] == "x" && matriz[2][1] == "x"){
             bandera2fv ++;
+            System.out.println("Primer fila vertical");
             banderaX += 1;
 
         }
@@ -80,12 +92,13 @@ public class tresEnRaya {
 
         }
          //tercera fila vertical
-        else if(matriz[0][2] == "x" && matriz[1][2] == "x" && matriz[1][2] == "x"){
+        else if(matriz[0][2] == "x" && matriz[1][2] == "x" && matriz[2][2] == "x"){
             bandera3fv++;
+            System.out.println("Primer fila vertical");
             banderaX += 1;
 
         }
-        else if(matriz[0][2] == "o" && matriz[1][2] == "o" && matriz[1][2] == "o"){
+        else if(matriz[0][2] == "o" && matriz[1][2] == "o" && matriz[2][2] == "o"){
             bandera3fv++;
             banderaO += 1;
 
@@ -93,6 +106,7 @@ public class tresEnRaya {
         //cruz de izquierda a derecha
         else if(matriz[0][0] == "x" && matriz[1][1] == "x" && matriz[2][2] == "x"){
             bandera1izqder ++;
+            System.out.println("Primer fila vertical");
             banderaX += 1;
         }
         else if(matriz[0][0] == "o" && matriz[1][1] == "o" && matriz[2][2] == "o"){
@@ -100,21 +114,35 @@ public class tresEnRaya {
             banderaO += 1;
         }
         //cruz de derecha a izquierda
-        else if(matriz[0][2] == "x" && matriz[1][1] == "x" && matriz[0][0] == "x"){
+        else if(matriz[0][2] == "x" && matriz[1][1] == "x" && matriz[2][0] == "x"){
             bandera2cderizq ++;
+            System.out.println("Hola mundo");
+            System.out.println(matriz[0][2]);
+            System.out.println(matriz[1][1]);
+            System.out.println(matriz[0][0]);
             banderaX += 1;
         }
-        else if(matriz[0][2] == "o" && matriz[1][1] == "o" && matriz[0][0] == "o"){
+        else if(matriz[0][2] == "o" && matriz[1][1] == "o" && matriz[2][0] == "o"){
             bandera2cderizq ++;
             banderaO += 1;
         }
 
-        if(banderaX > 3 || banderaO > 3){
+        if(banderaO ==0 && banderaX == 0){
             return "Nulo";
         }
 
-        if(banderaO == 1 && banderaX == 1){
+        if(banderaO > 0 && banderaX > 0){
             return "empate";
+        }
+
+        if(banderaX > 0){
+            System.out.println(banderaX);
+            System.out.println(banderaO);
+            return "Gano X";
+        }
+
+        if(banderaO > 0){
+            return "Gano O";
         }
 
         return "Error";
