@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 /*
@@ -16,20 +17,21 @@ import java.util.List;
 
 public class caracterInfiltrado {
     public static void main(String[] args) {
-        String palabra1 = "hola mundo";
-        String palabra2 = "hola mudial";
+        String palabra1 = "holi mundo";
+        String palabra2 = "hola mundi";
         List<String> palabras = caracteresInfiltrados(palabra1, palabra2);
 
         for(int i=0; i<palabras.size(); i++){
-            System.out.println(palabras.get(i));
+            System.out.print(palabras.get(i) + " ");
         }
     }
 
     static List<String> caracteresInfiltrados(String palabra1, String palabra2){
-        List<String> infiltrados = null;
+        List<String> infiltrados = new ArrayList<>();
         for(int i=0; i<palabra1.length(); i++){
             if (palabra1.charAt(i) != palabra2.charAt(i)){
                 infiltrados.add(String.valueOf(palabra1.charAt(i)));
+                infiltrados.add(String.valueOf(palabra2.charAt(i)));
             }
         }
         return infiltrados;
